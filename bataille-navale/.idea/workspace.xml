@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="044775b3-6407-4e48-adc8-bdd9ff00841a" name="Default Changelist" comment="" />
+    <list default="true" id="044775b3-6407-4e48-adc8-bdd9ff00841a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/EtatFrappes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/EtatFrappes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/EtatNavires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/EtatNavires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/EtatFrappes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/EtatNavires.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ensta/TestBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ensta/TestBoard.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,11 +50,27 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TestBoard">
     <configuration name="TestBoard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ensta.TestBoard" />
+      <module name="bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ensta.Ship.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestShip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ensta.TestShip" />
       <module name="bataille-navale" />
       <extension name="coverage">
         <pattern>
@@ -69,6 +96,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestBoard" />
+        <item itemvalue="Application.TestShip" />
       </list>
     </recent_temporary>
   </component>
@@ -80,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612884970916</updated>
-      <workItem from="1612884973975" duration="238000" />
+      <workItem from="1612884973975" duration="4240000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,7 @@
 package ensta;
 
+import ensta.Board.*;
+
 public class TestBoard{
     public static void main(String [] args){
         Board joueur_1 = new Board("joueur 1");
