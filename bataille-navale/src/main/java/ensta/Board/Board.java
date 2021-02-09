@@ -1,6 +1,8 @@
 package ensta.Board;
 
-public class Board {
+import ensta.Ship.*;
+
+public class Board implements IBoard {
     // Attributs
     protected String nom;
     protected int size;
@@ -37,6 +39,7 @@ public class Board {
     public String getNom() {
         return nom;
     }
+    @Override
     public int getSize() {
         return size;
     }
@@ -125,5 +128,89 @@ public class Board {
             }
             System.out.println(ligne);
         }
+    }
+
+    protected void checkOutOfRange(int x,int y) throws Exception{
+        if(x < 0 || x >= size || y < 0 || y >= size){
+            throw new Exception("Pas assez d'espace. Veuillez sélectionner une autre zone.");
+        }
+    }
+
+    protected void checkNavireChevaucher(int x,int y) throws Exception {
+        if (hasShip(x, y)) {
+            throw new Exception("Deux navires se chevauchent. Veuillez sélectionner une autre zone.");
+        }
+    }
+
+    @Override
+    public void putShip(AbstractShip ship, int x, int y) throws Exception {
+        int[][] shipPositions = new int[ship.getSize()][2];
+
+        checkOutOfRange(x,y);
+        checkNavireChevaucher(x,y);
+        shipPositions[0][0] = x;
+        shipPositions[0][1] = y;
+
+        for(int i = 1; i < ship.getSize(); ++i){
+            switch (ship.getOrientation()){
+                case NORD:
+                    x -= 1;
+                    checkOutOfRange(x,y);
+                    checkNavireChevaucher(x,y);
+                    shipPositions[i][0] = x;
+                    shipPositions[i][1] = y;
+                    break;
+                case SUD:
+                    x += 1;
+                    checkOutOfRange(x,y);
+                    checkNavireChevaucher(x,y);
+                    shipPositions[i][0] = x;
+                    shipPositions[i][1] = y;
+                    break;
+                case EST:
+                    y += 1;
+                    checkOutOfRange(x,y);
+                    checkNavireChevaucher(x,y);
+                    shipPositions[i][0] = x;
+                    shipPositions[i][1] = y;
+                    break;
+                case OUEST:
+                    y -= 1;
+                    checkOutOfRange(x,y);
+                    checkNavireChevaucher(x,y);
+                    shipPositions[i][0] = x;
+                    shipPositions[i][1] = y;
+                    break;
+            }
+        }
+
+        for(int i = 0; i < ship.getSize(); ++i){
+            setNavires_i_j(shipPositions[i][0],shipPositions[i][1],EtatNavires.NAVIRE);
+        }
+    }
+
+    @Override
+    public boolean hasShip(int x, int y) {
+        if(getNavires_i_j(x,y) == EtatNavires.LIBRE){
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
+
+    @Override
+    public void setHit(boolean hit, int x, int y) {
+        if(hit){
+            setFrappes_i_j(x,y,EtatFrappes.FRAPPE);
+        }else{
+            setFrappes_i_j(x,y,EtatFrappes.RIEN);
+        }
+    }
+
+    @Override
+    public Boolean getHit(int x, int y) {
+        if(getNavires_i_j(x,y) == EtatNavires.LIBRE){
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
     }
 }

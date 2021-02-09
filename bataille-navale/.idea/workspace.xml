@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="044775b3-6407-4e48-adc8-bdd9ff00841a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/EtatFrappes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/EtatFrappes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/EtatNavires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/EtatNavires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ensta/EtatFrappes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ensta/EtatNavires.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board/Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ensta/Board/Board$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Board/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ensta/Board/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/ensta/TestBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ensta/TestBoard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +22,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -108,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612884970916</updated>
-      <workItem from="1612884973975" duration="4240000" />
+      <workItem from="1612884973975" duration="13550000" />
     </task>
     <servers />
   </component>
