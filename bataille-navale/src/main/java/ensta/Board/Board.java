@@ -1,36 +1,37 @@
 package ensta.Board;
 
+import ensta.ColorUtil;
 import ensta.Ship.*;
 
 public class Board implements IBoard {
     // Attributs
     protected String nom;
     protected int size;
-    protected EtatNavires[][] navires;
-    protected EtatFrappes[][] frappes;
+    protected ShipState[][] navires;
+    protected Boolean[][] frappes;
 
     // Constructeur
     public Board(String nom){
         this.nom = nom;
         this.size = 10;
-        this.navires = new EtatNavires[size][size];
-        this.frappes = new EtatFrappes[size][size];
+        this.navires = new ShipState[size][size];
+        this.frappes = new Boolean[size][size];
         for(int i = 0;i < size;++i){
             for(int j = 0;j < size;++j){
-                navires[i][j] = EtatNavires.LIBRE;
-                frappes[i][j] = EtatFrappes.LIBRE;
+                navires[i][j] = new ShipState();
+                frappes[i][j] = null;
             }
         }
     }
     public Board(String nom, int size){
         this.nom = nom;
         this.size = size;
-        this.navires = new EtatNavires[size][size];
-        this.frappes = new EtatFrappes[size][size];
+        this.navires = new ShipState[size][size];
+        this.frappes = new Boolean[size][size];
         for(int i = 0; i < size; ++i){
             for(int j = 0; j < size; ++j){
-                navires[i][j] = EtatNavires.LIBRE;
-                frappes[i][j] = EtatFrappes.LIBRE;
+                navires[i][j] = new ShipState();
+                frappes[i][j] = null;
             }
         }
     }
@@ -43,10 +44,10 @@ public class Board implements IBoard {
     public int getSize() {
         return size;
     }
-    public EtatNavires getNavires_i_j(int i, int j) {
+    public ShipState getNavires_i_j(int i, int j) {
         return navires[i][j];
     }
-    public EtatFrappes getFrappes_i_j(int i, int j) {
+    public Boolean getFrappes_i_j(int i, int j) {
         return frappes[i][j];
     }
 
@@ -57,10 +58,11 @@ public class Board implements IBoard {
     public void setSize(int size) {
         this.size = size;
     }
-    public void setNavires_i_j(int i, int j, EtatNavires etat) {
-        this.navires[i][j] = etat;
+    public void setNavires_i_j(int i, int j, AbstractShip ship) {
+        this.navires[i][j].setShip(ship);
+        this.navires[i][j].setStruck(false);
     }
-    public void setFrappes_i_j(int i, int j, EtatFrappes etat) {
+    public void setFrappes_i_j(int i, int j, Boolean etat) {
         this.frappes[i][j] = etat;
     }
 
@@ -69,11 +71,11 @@ public class Board implements IBoard {
         System.out.println(nom);
         String ligne = "";
         ligne += "Navires :";
-        for(int i = 0; i < 2*size-5; ++i){
+        for(int i = 0; i < 2*size-4; ++i){
             ligne += " ";
         }
         ligne += "Frappes :";
-        System.out.println("Navires :");
+        System.out.println(ligne);
 
         ligne = "  ";
         for(int i = 0; i < size; ++i){
@@ -98,13 +100,10 @@ public class Board implements IBoard {
                 ligne = i + "";
             }
             for (int j = 1; j <= size; ++j) {
-                switch (navires[i-1][j-1]){
-                    case LIBRE:
-                        ligne += " " + ".";
-                        break;
-                    case NAVIRE:
-                        ligne += " " + "X";
-                        break;
+                if(navires[i-1][j-1].getShip() == null){
+                    ligne += " " + ".";
+                }else{
+                    ligne += " " + navires[i-1][j-1].toString();
                 }
             }
 
@@ -114,16 +113,12 @@ public class Board implements IBoard {
                 ligne += "   " + i + "";
             }
             for (int j = 1; j <= size; ++j) {
-                switch (frappes[i-1][j-1]){
-                    case LIBRE:
-                        ligne += " " + ".";
-                        break;
-                    case FRAPPE:
-                        ligne += " " + "X";
-                        break;
-                    case RIEN:
-                        ligne += " " + "O";
-                        break;
+                if (frappes[i - 1][j - 1] == null) {
+                    ligne += " " + ".";
+                } else if (frappes[i - 1][j - 1] == false) {
+                    ligne += " " + "X";
+                } else {
+                    ligne += " " + ColorUtil.colorize("X", ColorUtil.Color.RED);
                 }
             }
             System.out.println(ligne);
@@ -185,30 +180,26 @@ public class Board implements IBoard {
         }
 
         for(int i = 0; i < ship.getSize(); ++i){
-            setNavires_i_j(shipPositions[i][0],shipPositions[i][1],EtatNavires.NAVIRE);
+            setNavires_i_j(shipPositions[i][0],shipPositions[i][1],ship);
         }
     }
 
     @Override
     public boolean hasShip(int x, int y) {
-        if(getNavires_i_j(x,y) == EtatNavires.LIBRE){
-            return Boolean.FALSE;
+        if(getNavires_i_j(x,y).getShip() == null){
+            return false;
         }
-        return Boolean.TRUE;
+        return true;
     }
 
     @Override
     public void setHit(boolean hit, int x, int y) {
-        if(hit){
-            setFrappes_i_j(x,y,EtatFrappes.FRAPPE);
-        }else{
-            setFrappes_i_j(x,y,EtatFrappes.RIEN);
-        }
+        setFrappes_i_j(x,y,hit);
     }
 
     @Override
     public Boolean getHit(int x, int y) {
-        if(getNavires_i_j(x,y) == EtatNavires.LIBRE){
+        if(getNavires_i_j(x,y).getShip() == null){
             return Boolean.FALSE;
         }
         return Boolean.TRUE;

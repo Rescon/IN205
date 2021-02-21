@@ -3,47 +3,25 @@ package ensta;
 import ensta.Board.*;
 import ensta.Ship.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class TestBoard{
     public static void main(String [] args){
-        Scanner scanner = new Scanner(System.in);
-        Board joueur_1 = new Board("joueur 1");
+        Board board = new Board("joueur 1");
+        Board opponentBoard = new Board("joueur 2");
         Destroyer Destroyer_1 = new Destroyer();
-        Submarine Submarine_1 = new Submarine(Orientation.NORD);
-        int x,y;
-        boolean flag;
-
-        flag = Boolean.TRUE;
-        while(flag) {
-            flag = Boolean.FALSE;
-            System.out.println("Veuillez entrer x:");
-            x = scanner.nextInt();
-            System.out.println("Veuillez entrer y:");
-            y = scanner.nextInt();
-            try {
-                joueur_1.putShip(Destroyer_1, x-1, y-1);
-            } catch (Exception e){
-                flag = Boolean.TRUE;
-                System.out.println(e);
-            }
-        }
-        joueur_1.print();
-
-        flag = Boolean.TRUE;
-        while(flag) {
-            flag = Boolean.FALSE;
-            System.out.println("Veuillez entrer x:");
-            x = scanner.nextInt();
-            System.out.println("Veuillez entrer y:");
-            y = scanner.nextInt();
-            try {
-                joueur_1.putShip(Submarine_1, x-1, y-1);
-            } catch (Exception e){
-                flag = Boolean.TRUE;
-                System.out.println(e);
-            }
-        }
-        joueur_1.print();
+        Submarine Submarine_1 = new Submarine();
+        Submarine Submarine_2 = new Submarine();
+        BattleShip BattleShip_1 = new BattleShip();
+        Carrier Carrier_1 = new Carrier();
+        List<AbstractShip> ships = Arrays.asList(Destroyer_1,Submarine_1,Submarine_2,BattleShip_1,Carrier_1);
+        Player player = new Player(board,opponentBoard,ships);
+        player.putShips();
+        board.setHit(true,1,1);
+        board.print();
+        board.setHit(false,1,2);
+        board.print();
     }
 }

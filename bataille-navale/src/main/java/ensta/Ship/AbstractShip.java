@@ -6,6 +6,7 @@ public abstract class AbstractShip {
     protected String nom;
     protected int size;
     protected Orientation orientation;
+    protected int strikeCount;
 
     // Constructeur
     public AbstractShip(String label, String nom, int size, Orientation orientation){
@@ -13,6 +14,7 @@ public abstract class AbstractShip {
         this.nom = nom;
         this.size = size;
         this.orientation = orientation;
+        this.strikeCount = 0;
     }
 
     // Accesseurs
@@ -28,6 +30,9 @@ public abstract class AbstractShip {
     public Orientation getOrientation() {
         return orientation;
     }
+    public int getStrikeCount() {
+        return strikeCount;
+    }
 
     // Mutateurs
     public void setLabel(String label) {
@@ -42,7 +47,9 @@ public abstract class AbstractShip {
     public void setOrientation(Orientation orientation) {
         this.orientation = orientation;
     }
+    public void setStrikeCount(int strikeCount) { this.strikeCount = strikeCount; }
 
+    // Méthode
     @Override
     public String toString() {
         return "AbstractShip{" +
@@ -51,5 +58,16 @@ public abstract class AbstractShip {
                 ", size=" + size +
                 ", orientation=" + orientation +
                 '}';
+    }
+
+    public void addStrike() {
+        this.strikeCount ++;
+    }
+
+    public boolean isSunk() {
+        if (this.strikeCount==this.size) {
+            return true;
+        }
+        return false;
     }
 }
