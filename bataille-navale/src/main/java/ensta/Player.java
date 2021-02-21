@@ -1,5 +1,5 @@
 package ensta;
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import ensta.Board.*;
@@ -95,18 +95,48 @@ public class Player {
         } while (!done);
     }
 
+    protected void checkSamePostion(int x, int y, ArrayList<Integer> coords) throws Exception {
+        if(coords.contains(board.getSize()*y+x)){
+            throw new Exception("Vous avez déjà attaqué cette zone. Veuillez changer de zone.");
+        }
+    }
 
-    public Hit sendHit(int[] coords) {
+    protected void checkOutOfRange(int x, int y) throws Exception {
+        if(x < 0 || x >= board.getSize() || y < 0 || y >= board.getSize()){
+            throw new Exception("La zone d'attaque n'est pas dans la grille. Veuillez changer de zone.");
+        }
+    }
+
+    public Hit sendHit(ArrayList<Integer> coords) {
         boolean done = false;
         Hit hit = null;
 
         do {
             System.out.println("où frapper?");
-            InputHelper.CoordInput hitInput = InputHelper.readCoordInput();
-            // TODO call sendHit on this.opponentBoard
+            boolean outOfRange = false;
+            boolean samePostion = false;
 
-            // TODO : Game expects sendHit to return BOTH hit result & hit coords.
-            // return hit is obvious. But how to return coords at the same time ?
+            InputHelper.CoordInput hitInput = InputHelper.readCoordInput();
+
+            try{
+                checkOutOfRange(hitInput.x, hitInput.y);
+            }catch (Exception e){
+                outOfRange = true;
+                System.out.println(e);
+            }
+
+            try{
+                checkSamePostion(hitInput.x, hitInput.y, coords);
+            }catch (Exception e) {
+                samePostion = true;
+                System.out.println(e);
+            }
+
+            if(!outOfRange && !samePostion){
+                coords.add(board.getSize()*hitInput.y+hitInput.x);
+                hit = opponentBoard.sendHit(hitInput.y,hitInput.x);
+                done = true;
+            }
         } while (!done);
 
         return hit;

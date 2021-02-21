@@ -38,13 +38,9 @@ public class ShipState {
     }
 
     // Méthode
-    public void addStrike() throws Exception {
-        if (this.ship.isSunk()) {
-            throw new Exception("Ce navire a déjà coulé.");
-        } else {
-            this.struck = true;
-            this.ship.addStrike();
-        }
+    public void addStrike(){
+        this.struck = true;
+        this.ship.addStrike();
     }
 
     public String toString() {

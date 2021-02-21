@@ -1,6 +1,7 @@
 package ensta.Board;
 
 import ensta.ColorUtil;
+import ensta.Hit;
 import ensta.Ship.*;
 
 public class Board implements IBoard {
@@ -203,5 +204,40 @@ public class Board implements IBoard {
             return Boolean.FALSE;
         }
         return Boolean.TRUE;
+    }
+
+    @Override
+    public Hit sendHit(int x, int y) {
+        Hit result;
+        if(getNavires_i_j(x,y).getShip() != null) {//Un bateau a été touché
+            result = Hit.STRIKE;
+            getNavires_i_j(x,y).addStrike();
+            System.out.println(result);
+            if(getNavires_i_j(x,y).getShip().isSunk()) {//Le bateau a été coulé
+                switch (getNavires_i_j(x,y).getShip().getLabel()) {
+                    case "D":
+                        result = Hit.DESTROYER;
+                        System.out.println(result + " Coulé!");
+                        break;
+                    case "S":
+                        result = Hit.SUBMARINE;
+                        System.out.println(result + " Coulé!");
+                        break;
+                    case "B":
+                        result = Hit.BATTLESHIP;
+                        System.out.println(result + " Coulé!");
+                        break;
+                    case "C":
+                        result = Hit.CARRIER;
+                        System.out.println(result + " Coulé!");
+                        break;
+                }
+            }
+        }
+        else {
+            result = Hit.MISS;
+            System.out.println(result);
+        }
+        return result;
     }
 }

@@ -23,5 +23,11 @@ public class TestBoard{
         board.print();
         board.setHit(false,1,2);
         board.print();
+        board.sendHit(0,0);
+        board.print();
+        board.sendHit(0,1);
+        board.print();
+        board.sendHit(0,2);
+        board.print();
     }
 }
