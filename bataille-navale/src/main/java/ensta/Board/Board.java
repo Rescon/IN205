@@ -91,6 +91,7 @@ public class Board implements IBoard {
         System.out.println(ligne);
     }
 
+    @Override
     public void print(){
         print_aux();
         String ligne = "";
@@ -217,21 +218,18 @@ public class Board implements IBoard {
                 switch (getNavires_i_j(x,y).getShip().getLabel()) {
                     case "D":
                         result = Hit.DESTROYER;
-                        System.out.println(result + " Coulé!");
                         break;
                     case "S":
                         result = Hit.SUBMARINE;
-                        System.out.println(result + " Coulé!");
                         break;
                     case "B":
                         result = Hit.BATTLESHIP;
-                        System.out.println(result + " Coulé!");
                         break;
                     case "C":
                         result = Hit.CARRIER;
-                        System.out.println(result + " Coulé!");
                         break;
                 }
+                System.out.println(result + " Coulé!");
             }
         }
         else {
