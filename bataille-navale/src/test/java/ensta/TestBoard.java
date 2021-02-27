@@ -18,7 +18,11 @@ public class TestBoard{
         Carrier Carrier_1 = new Carrier();
         List<AbstractShip> ships = Arrays.asList(Destroyer_1,Submarine_1,Submarine_2,BattleShip_1,Carrier_1);
         Player player = new Player(board,opponentBoard,ships);
-        player.putShips();
+        try {
+            player.putShips();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         board.setHit(true,1,1);
         board.print();
         board.setHit(false,1,2);

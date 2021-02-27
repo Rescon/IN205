@@ -51,7 +51,7 @@ public class Player {
 
     // Méthode
     // Read keyboard input to get ships coordinates. Place ships on given coodrinates.
-    public void putShips() {
+    public void putShips() throws Exception {
         boolean done;
         boolean placement_successful;
         int i = 0;
@@ -141,7 +141,6 @@ public class Player {
 
         return hit;
     }
-
 
     public AbstractShip[] getShips() {
         return ships;

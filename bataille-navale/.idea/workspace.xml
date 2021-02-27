@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Board/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Board/IBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ensta/TestBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ensta/TestPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ensta/TestPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,20 @@
       <recent name="ensta" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestGame">
+  <component name="RunManager" selected="Application.Game">
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ensta.Game" />
+      <module name="bataille-navale" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ensta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestBoard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ensta.TestBoard" />
       <module name="bataille-navale" />
@@ -107,19 +123,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestShip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ensta.TestShip" />
-      <module name="bataille-navale" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ensta.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -135,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Game" />
         <item itemvalue="Application.TestGame" />
         <item itemvalue="Application.TestBoard" />
         <item itemvalue="Application.TestPlayer" />
         <item itemvalue="Application.TestInput" />
-        <item itemvalue="Application.TestShip" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +157,7 @@
       <workItem from="1612884973975" duration="13671000" />
       <workItem from="1613835676314" duration="241000" />
       <workItem from="1613836029986" duration="21066000" />
-      <workItem from="1614344160774" duration="9902000" />
+      <workItem from="1614344160774" duration="16233000" />
     </task>
     <servers />
   </component>

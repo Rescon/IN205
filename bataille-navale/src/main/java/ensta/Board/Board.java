@@ -213,7 +213,7 @@ public class Board implements IBoard {
         if(getNavires_i_j(x,y).getShip() != null) {//Un bateau a été touché
             result = Hit.STRIKE;
             getNavires_i_j(x,y).addStrike();
-            System.out.println(result);
+            //System.out.println(result);
             if(getNavires_i_j(x,y).getShip().isSunk()) {//Le bateau a été coulé
                 switch (getNavires_i_j(x,y).getShip().getLabel()) {
                     case "D":
@@ -229,12 +229,12 @@ public class Board implements IBoard {
                         result = Hit.CARRIER;
                         break;
                 }
-                System.out.println(result + " Coulé!");
+                //System.out.println(result + " Coulé!");
             }
         }
         else {
             result = Hit.MISS;
-            System.out.println(result);
+            //System.out.println(result);
         }
         return result;
     }

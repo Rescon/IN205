@@ -16,7 +16,11 @@ public class TestPlayer {
         Carrier Carrier_1 = new Carrier();
         List<AbstractShip> ships = Arrays.asList(Destroyer_1,Submarine_1_1,Submarine_1_2,BattleShip_1,Carrier_1);
         Player player = new Player(board,opponentBoard,ships);
-        player.putShips();
+        try {
+            player.putShips();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Destroyer Destroyer_2 = new Destroyer();
         Submarine Submarine_2_1 = new Submarine();
