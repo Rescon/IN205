@@ -85,8 +85,8 @@ public class Game {
             if (!done && !strike) {
                 do {
                     hit = player2.sendHit(coords_ai);
-                    coords[0] = coords_ai.get(coords_ai.size() - 1)/size_grille;
-                    coords[1] = coords_ai.get(coords_ai.size() - 1)%size_grille;
+                    coords[0] = coords_ai.get(coords_ai.size() - 1)%size_grille;
+                    coords[1] = coords_ai.get(coords_ai.size() - 1)/size_grille;
                     strike = hit != Hit.MISS;
                     if (strike) {
                         b1.print();
