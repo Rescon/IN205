@@ -1,11 +1,12 @@
 package ensta;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ensta.Board.*;
 import ensta.Ship.*;
 
-public class Player {
+public class Player implements Serializable {
     // Attributs
     protected Board board;
     protected Board opponentBoard;

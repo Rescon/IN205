@@ -1,6 +1,8 @@
 package ensta.Ship;
 
-public abstract class AbstractShip {
+import java.io.Serializable;
+
+public abstract class AbstractShip implements Serializable {
     // Attributs
     protected String label;
     protected String nom;

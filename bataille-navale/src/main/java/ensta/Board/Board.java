@@ -4,7 +4,9 @@ import ensta.ColorUtil;
 import ensta.Hit;
 import ensta.Ship.*;
 
-public class Board implements IBoard {
+import java.io.Serializable;
+
+public class Board implements IBoard, Serializable {
     // Attributs
     protected String nom;
     protected int size;
