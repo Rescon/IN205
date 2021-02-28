@@ -28,6 +28,20 @@ public class Game {
      */
     public Game() {}
 
+    public static void intervalle(){
+        for(int i = 0;i < 30;++i){
+            System.out.println();
+        }
+    }
+
+    private static void sleep(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Game init() {
         if (true /*!loadSave()*/) {
             // init attributes
@@ -47,6 +61,47 @@ public class Game {
             // place player ships
             try {
                 player1.putShips();
+                player2.putShips();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return this;
+    }
+
+    public Game init2() {
+        if (true /*!loadSave()*/) {
+            // init attributes
+            System.out.println("entre le nom de joueur 1:");
+            String username1 = sin.nextLine();
+            System.out.println("entre le nom de joueur 2:");
+            String username2 = sin.nextLine();
+
+            List<AbstractShip> player1Ships = createDefaultShips();
+            List<AbstractShip> player2Ships = createDefaultShips();
+
+            Board b1 = new Board(username1,size_grille);
+            Board b2 = new Board(username2,size_grille);
+            player1 = new Player(b1,b2,player1Ships);
+            player2 = new Player(b2,b1,player2Ships);
+
+            System.out.println("Maintenant, le joueur 1 place le navire:");
+            b1.print();
+
+            // place player ships
+            try {
+                player1.putShips();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            intervalle();
+
+            System.out.println("Maintenant, le joueur 2 place le navire:");
+            b2.print();
+
+            // place player ships
+            try {
                 player2.putShips();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -100,6 +155,65 @@ public class Game {
                 } while(strike && !done);
             }
 
+        } while (!done);
+
+        SAVE_FILE.delete();
+        System.out.println(String.format("joueur %d gagne", player1.lose ? 2 : 1));
+        sin.close();
+    }
+
+    public void run2() {
+        ArrayList<Integer> coords_player1 = new ArrayList<>();
+        ArrayList<Integer> coords_player2 = new ArrayList<>();
+        Board b1 = player1.board;
+        Board b2 = player2.board;
+        Hit hit;
+        int[] coords = new int[2];
+
+        // main loop
+        boolean done = false;
+        boolean strike;
+        do {
+            if(!done){
+                System.out.println("Maintenant, Au tour du joueur 1 d'attaquer:");
+                sleep(3000);
+                intervalle();
+                sleep(3000);
+                System.out.println("Bonjour, joueur 1, c'est maintenant à vous d'attaquer:");
+                b1.print();
+                do{
+                    hit = player1.sendHit(coords_player1);
+                    coords[0] = coords_player1.get(coords_player1.size() - 1)%size_grille;
+                    coords[1] = coords_player1.get(coords_player1.size() - 1)/size_grille;
+                    strike = hit != Hit.MISS;
+                    b1.setHit(strike, coords[1], coords[0]);
+                    b1.print();
+
+                    done = updateScore();
+                    System.out.println(makeHitMessage(false /* outgoing hit */, coords, hit));
+                } while(strike && !done);
+            }
+
+            if (!done) {
+                System.out.println("Maintenant, Au tour du joueur 2 d'attaquer:");
+                sleep(3000);
+                intervalle();
+                sleep(3000);
+                System.out.println("Bonjour, joueur 2, c'est maintenant à vous d'attaquer:");
+                b2.print();
+                do {
+                    hit = player2.sendHit(coords_player2);
+                    coords[0] = coords_player2.get(coords_player2.size() - 1)%size_grille;
+                    coords[1] = coords_player2.get(coords_player2.size() - 1)/size_grille;
+                    strike = hit != Hit.MISS;
+                    b2.setHit(strike, coords[1], coords[0]);
+                    b2.print();
+
+                    done = updateScore();
+                    System.out.println(makeHitMessage(false /* incoming hit */, coords, hit));
+
+                } while(strike && !done);
+            }
         } while (!done);
 
         SAVE_FILE.delete();
@@ -180,6 +294,33 @@ public class Game {
     }
 
     public static void main(String args[]) {
-        new Game().init().run();
+        Scanner sin = new Scanner(System.in);
+        String[] validOrientations = {"Y", "N"}; // Yes and No
+        boolean done = false;
+        boolean two_player = false;
+        System.out.println("Voulez-vous entrer dans le mode deux joueurs? Veuillez entrer Y ou N：");
+        do {
+            try {
+                String in = sin.nextLine();
+                if (Arrays.asList(validOrientations).contains(in)) {
+                    done = true;
+                    if(in.equals("Y")){
+                        two_player = true;
+                    }
+                }
+            } catch (Exception e) {
+                // nop
+            }
+
+            if (!done) {
+                System.err.println("Format incorrect! Veuillez entrer Y ou N：");
+            }
+        } while (!done);
+
+        if(two_player){
+            new Game().init2().run2();
+        }else{
+            new Game().init().run();
+        }
     }
 }

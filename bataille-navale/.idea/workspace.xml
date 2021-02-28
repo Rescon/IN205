@@ -7,6 +7,8 @@
     <list default="true" id="044775b3-6407-4e48-adc8-bdd9ff00841a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ensta/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ensta/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ensta/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ensta/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ensta/Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +154,7 @@
       <workItem from="1613835676314" duration="241000" />
       <workItem from="1613836029986" duration="21066000" />
       <workItem from="1614344160774" duration="16233000" />
-      <workItem from="1614425157945" duration="1598000" />
+      <workItem from="1614425157945" duration="6271000" />
     </task>
     <servers />
   </component>
