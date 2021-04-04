@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>LibraryManager</display-name>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/View/error_500.jsp</location>
+  </error-page>
+
+  <!-- Dashboard servlet -->
+  <servlet>
+    <servlet-name>DashboardServlet</servlet-name>
+    <servlet-class>ensta.servlet.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DashboardServlet</servlet-name>
+    <url-pattern>/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <!-- EmpruntAdd servlet -->
+  <servlet>
+    <servlet-name>EmpruntAddServlet</servlet-name>
+    <servlet-class>ensta.servlet.EmpruntAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpruntAddServlet</servlet-name>
+    <url-pattern>/emprunt_add</url-pattern>
+  </servlet-mapping>
+
+  <!-- EmprunttList servlet -->
+  <servlet>
+    <servlet-name>EmpruntListServlet</servlet-name>
+    <servlet-class>ensta.servlet.EmpruntListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpruntListServlet</servlet-name>
+    <url-pattern>/emprunt_list</url-pattern>
+  </servlet-mapping>
+
+  <!-- EmpruntReturn servlet -->
+  <servlet>
+    <servlet-name>EmpruntReturnServlet</servlet-name>
+    <servlet-class>ensta.servlet.EmpruntReturnServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpruntReturnServlet</servlet-name>
+    <url-pattern>/emprunt_return</url-pattern>
+  </servlet-mapping>
+
+  <!-- LivreAdd servlet -->
+  <servlet>
+    <servlet-name>LivreAddServlet</servlet-name>
+    <servlet-class>ensta.servlet.LivreAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LivreAddServlet</servlet-name>
+    <url-pattern>/livre_add</url-pattern>
+  </servlet-mapping>
+
+  <!-- LivreDelete servlet -->
+  <servlet>
+    <servlet-name>LivreDeleteServlet</servlet-name>
+    <servlet-class>ensta.servlet.LivreDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LivreDeleteServlet</servlet-name>
+    <url-pattern>/livre_delete</url-pattern>
+  </servlet-mapping>
+
+  <!-- LivreDetails servlet -->
+  <servlet>
+    <servlet-name>LivreDetailsServlet</servlet-name>
+    <servlet-class>ensta.servlet.LivreDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LivreDetailsServlet</servlet-name>
+    <url-pattern>/livre_details</url-pattern>
+  </servlet-mapping>
+
+  <!-- LivreList servlet -->
+  <servlet>
+    <servlet-name>LivreListServlet</servlet-name>
+    <servlet-class>ensta.servlet.LivreListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LivreListServlet</servlet-name>
+    <url-pattern>/livre_list</url-pattern>
+  </servlet-mapping>
+
+  <!-- MembreAdd servlet -->
+  <servlet>
+    <servlet-name>MembreAddServlet</servlet-name>
+    <servlet-class>ensta.servlet.MembreAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MembreAddServlet</servlet-name>
+    <url-pattern>/membre_add</url-pattern>
+  </servlet-mapping>
+
+  <!-- MembreDelete servlet -->
+  <servlet>
+    <servlet-name>MembreDeleteServlet</servlet-name>
+    <servlet-class>ensta.servlet.MembreDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MembreDeleteServlet</servlet-name>
+    <url-pattern>/membre_delete</url-pattern>
+  </servlet-mapping>
+
+  <!-- MembreDetails servlet -->
+  <servlet>
+    <servlet-name>MembreDetailsServlet</servlet-name>
+    <servlet-class>ensta.servlet.MembreDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MembreDetailsServlet</servlet-name>
+    <url-pattern>/membre_details</url-pattern>
+  </servlet-mapping>
+
+  <!-- MembreList servlet -->
+  <servlet>
+    <servlet-name>MembreListServlet</servlet-name>
+    <servlet-class>ensta.servlet.MembreListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MembreListServlet</servlet-name>
+    <url-pattern>/membre_list</url-pattern>
+  </servlet-mapping>
+</web-app>
